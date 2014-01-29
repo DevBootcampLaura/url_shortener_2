@@ -1,0 +1,25 @@
+<div class="container">
+<h1>Welcome to user page</h1>
+<!-- display all of the links that contain the user's id -->
+<!-- display all of the other links -->
+
+  <form action="/user_urls" method="post">
+    Long URL: <input type="text" name="long_url">
+    <input type="submit" value="Generate short URL">
+  </form>
+
+  Your URL List:<br>
+  <% Url.where(user_id: session[:id]).each do |record|%>
+    <a href="<%= record.long_url %>"><%= record.long_url %></a> -
+    <a href="http://127.0.0.1:9393/<%= record.short_url %>">http://127.0.0.1:9393/<%= record.short_url %></a>
+    <%= record.click_count %><br>
+  <% end %>
+
+  All URLs:<br>
+  <% Url.all.each do |record|%>
+    <a href="<%= record.long_url %>"><%= record.long_url %></a> -
+    <a href="http://127.0.0.1:9393/<%= record.short_url %>">http://127.0.0.1:9393/<%= record.short_url %></a>
+    <%= record.click_count %><br>
+  <% end %><br><br>
+<a href="/logout">Log Out</a>
+</div>

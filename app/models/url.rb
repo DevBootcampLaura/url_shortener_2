@@ -1,6 +1,7 @@
 require 'securerandom.rb'
 
 class Url < ActiveRecord::Base
+  belongs_to :user
   validates :long_url, presence: true
   validates :long_url, uniqueness: true, on: :create
   validate :must_start_with_http

@@ -1,13 +1,3 @@
-<div class="container">
-  <form action="/sign_in" method="post">
-      Email:<input type="text" name="email">
-      Password:<input type="password" name="password">
-      <input type="submit" value="LOG IN">
-    </form>
-    <a href="/sign_up">Sign Up!</a>
-</div>
-
-<div class="container">
   <form action="/urls" method="post">
     Long URL: <input type="text" name="long_url">
     <input type="submit" value="Generate short URL">
@@ -20,4 +10,3 @@
     <%= record.click_count %><br>
   <% end %>
 </div>
-
