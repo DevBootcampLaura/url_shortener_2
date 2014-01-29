@@ -1,4 +1,4 @@
-<div class="container">
+
 <h1>Welcome to user page</h1>
 <!-- display all of the links that contain the user's id -->
 <!-- display all of the other links -->
@@ -6,20 +6,40 @@
   <form action="/user_urls" method="post">
     Long URL: <input type="text" name="long_url">
     <input type="submit" value="Generate short URL">
-  </form>
+  </form><br><br>
 
-  Your URL List:<br>
-  <% Url.where(user_id: params[:id]).each do |record|%>
-    <a href="<%= record.long_url %>"><%= record.long_url %></a><br> -
-    <a href="http://127.0.0.1:9393/<%= record.short_url %>">http://127.0.0.1:9393/<%= record.short_url %></a>
-    <%="( #{record.click_count} )"%><br><br>
-  <% end %>
 
-  All URLs:<br>
-  <% Url.all.each do |record|%>
-    <a href="<%= record.long_url %>"><%= record.long_url %></a><br> -
-    <a href="http://127.0.0.1:9393/<%= record.short_url %>">http://127.0.0.1:9393/<%= record.short_url %></a>
-   <br><br>
-  <% end %><br><br>
+Your URLS:
+  <table>
+    <tr>
+      <td>Original URL</td>
+      <td>Shortened URL</td>
+      <td>Click Count</td>
+    </tr>
+    <% Url.where(user_id: params[:id]).each do |record|%>
+    <tr>
+      <td><a href="<%= record.long_url %>"><%= record.long_url %></a></td>
+      <td><a href="http://127.0.0.1:9393/<%= record.short_url %>">http://127.0.0.1:9393/<%= record.short_url %></td>
+      <td><%=record.click_count%></td>
+    </tr>
+    <% end %>
+  </table>
+
+
+All URLS:
+  <table>
+    <tr>
+      <td>Original URL</td>
+      <td>Shortened URL</td>
+    </tr>
+    <% Url.all.each do |record|%>
+    <tr>
+      <td><a href="<%= record.long_url %>"><%= record.long_url %></a></td>
+      <td><a href="http://127.0.0.1:9393/<%= record.short_url %>">http://127.0.0.1:9393/<%= record.short_url %></td>
+    </tr>
+    <% end %>
+  </table>
+
 <a href="/logout">Log Out</a>
-</div>
+
+

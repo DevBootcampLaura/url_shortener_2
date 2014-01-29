@@ -1,9 +1,23 @@
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 800px;
   padding: 20px 20px 20px 20px;
   border: 1px dotted black;
 }
 th {
   text-align: left;
+}
+
+table {
+  border-spacing: 5px;
+  border-collapse: separate;
+}
+
+td {
+  /*border: 1px solid gray;*/
+  background-color: lightgreen;
+  margin: 2px;
+  padding: 5px;
+  width: 200px;
+  word-wrap: break-word; /*look this up*/
 }
