@@ -9,10 +9,10 @@ post '/sign_in' do
   redirect to('/') if @user == nil
 
   session[:id] = @user.id
-  redirect to('/user_page')
+  redirect to("/user_page/#{session[:id]}")
 end
 
-get '/user_page'  do
+get '/user_page/:id'  do
   redirect to('/') if session[:id] == nil
   erb :user_page
 end

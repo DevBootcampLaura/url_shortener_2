@@ -9,17 +9,17 @@
   </form>
 
   Your URL List:<br>
-  <% Url.where(user_id: session[:id]).each do |record|%>
-    <a href="<%= record.long_url %>"><%= record.long_url %></a> -
+  <% Url.where(user_id: params[:id]).each do |record|%>
+    <a href="<%= record.long_url %>"><%= record.long_url %></a><br> -
     <a href="http://127.0.0.1:9393/<%= record.short_url %>">http://127.0.0.1:9393/<%= record.short_url %></a>
-    <%= record.click_count %><br>
+    <%="( #{record.click_count} )"%><br><br>
   <% end %>
 
   All URLs:<br>
   <% Url.all.each do |record|%>
-    <a href="<%= record.long_url %>"><%= record.long_url %></a> -
+    <a href="<%= record.long_url %>"><%= record.long_url %></a><br> -
     <a href="http://127.0.0.1:9393/<%= record.short_url %>">http://127.0.0.1:9393/<%= record.short_url %></a>
-    <%= record.click_count %><br>
+   <br><br>
   <% end %><br><br>
 <a href="/logout">Log Out</a>
 </div>
